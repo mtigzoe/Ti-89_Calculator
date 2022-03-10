@@ -1,9 +1,9 @@
 import sympy as sym
 
-#from modes.base_mode import BaseMode
+from modes.base_mode import BaseMode
 
 
-class DerivMode:
+class DerivMode(BaseMode):
     def __init__(self):
         self.x2, self.y2 = sym.symbols("x y")
         # m = x**4+x*y**4

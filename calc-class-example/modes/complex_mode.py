@@ -1,8 +1,8 @@
-import cmath as cm
+#import cmath as cm
+from cmath import *
+from modes.base_mode import BaseMode
 
-#from modes.base_mode import BaseMode
 
-
-class ComplexMode:   
-    def calculate(self, expression):
-        return eval(f"cm.{expression}")
+class ComplexMode(BaseMode):   
+    def calculateComplex(expression):
+        return print(eval(expression))

@@ -1,12 +1,15 @@
-#from modes.base_mode import BaseMode
-import statistics as s 
+from modes.base_mode import BaseMode
+import statistics 
+from statistics import *
 
-class StatsMode:
-    def calculate(self, expression):
-        return eval(f"s.{expression}")
+class StatsMode(BaseMode):
+    def calculateStats(expression):
+        #return print("%s" % "statistics."+expression)
+        result = str("statistics."+expression)
+        #return print(f"statistics.{expression}")
+        return print(eval(result ))
 
 
-    def meow(self):
-        print(
-            "I don't want to meow like the others. I'm going to override the meow method I inherited from my parent class."
-        )
+    
+        
+         

@@ -1,13 +1,13 @@
-#from math import * 
-import math as m 
+import math as m
+from math import * 
 
-#from modes.base_mode import BaseMode
+from modes.base_mode import BaseMode
 
 
-class RealMode:
-    
-    def calculateRealMode(self, expression):
-        #equation = eval("math." + expression)        
-
-        return expression 
+class RealMode(BaseMode):
+    #def __init__(self):
+     #   self.expression = " "
+        #pass 
+    def calculateRealMode(expression):
+        return print(eval(expression))
 
