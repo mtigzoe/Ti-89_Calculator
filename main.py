@@ -7,6 +7,7 @@ from sympy.solvers import solve
 from sympy import * 
 from statistics import * 
 from sympy.matrices import Matrix
+import UserGuide 
 
 previous = 0
 
@@ -27,8 +28,10 @@ def mode_menu():
     print("D) derivative")
     print("I) integral") 
 
-    print("S) statistics\n") 
+    print("S) statistics") 
     print("A) Algebra")
+    print("U) User Guides")
+    print("Q) Quit")
 
 
 #derivative menu 
@@ -49,6 +52,14 @@ def algebra_solver_menu():
     print("2. Two variables")
     print("3. Three variables")
 
+#User Guide Menu 
+def UserGuideMenu(): 
+    print("\nUser Guide Menu\n")
+    print("R) Real Number User Guide")
+    print("D) Derivative User Guide")
+    print("I) Integral User Guide")
+    print("S) Statistics User Guide")
+    print("A) Algebra User Guide")
 # mode selection function
 
 def mode_selection_function():
@@ -61,23 +72,25 @@ def mode_selection_function():
 
     
 
-        if mode_selection == "real":
+        if mode_selection == "r":
 
             calculateRealMode()
 
-        elif mode_selection == "complex":    
+        elif mode_selection == "c":    
 
             calculateComplex()
-        elif mode_selection == "derivative":
+        elif mode_selection == "d":
             derivative_menu_with_selections()
-        elif mode_selection == "integral":
+        elif mode_selection == "i":
             integral_mode()    
-        elif mode_selection == "statistics":
+        elif mode_selection == "s":
             statistics_mode()
-        elif mode_selection == "algebra":
+        elif mode_selection == "a":
             algebra_menu_with_selection()
-        elif mode_selection == "matrix":
+        elif mode_selection == "m":
             matrix_function()    
+        elif mode_selection == "u":
+            UserGuideswithSelection()    
         elif mode_selection == "options":
 
             mode_menu()
@@ -133,6 +146,26 @@ def algebra_mode_selection():
         exit()
 
 
+def UserGuide_Selection():
+    UserGuideOptions = input("Which user guide would you like to read?")
+    if UserGuideOptions== "r":
+        
+        UserGuide.RealNumberInstructions()
+    elif UserGuideOptions== "d": 
+        
+        UserGuide.DerivativesInstructions()
+    elif UserGuideOptions == "i":
+        
+        UserGuide.IntegralInstructions()
+    elif UserGuideOptions== "s":
+        UserGuide.StatisticsInstructions()    
+    elif UserGuideOptions == "a":
+        UserGuide.AlgebraInstructions()
+    elif UserGuideOptions == "switch":    
+        UserGuideswithSelection()
+    else: 
+        exit()    
+
 #The function prints the derivative menu with selections 
 def derivative_menu_with_selections():
     derivative_menu()
@@ -141,6 +174,10 @@ def derivative_menu_with_selections():
 def algebra_menu_with_selection():
     algebra_solver_menu()
     algebra_mode_selection()
+#User Guides with Selections 
+def UserGuideswithSelection():
+    UserGuideMenu()
+    UserGuide_Selection()
 # calculator for real numbers
 
 def calculateRealMode():
@@ -340,7 +377,7 @@ def power_derivative():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your POWER expression -> ")
 
         else:
 
@@ -395,7 +432,7 @@ def product_derivative():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your PRODUCT expression -> ")
 
         else:
 
@@ -450,7 +487,7 @@ def quotient_derivative():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your QUOTIENT expression -> ")
 
         else:
 
@@ -505,7 +542,7 @@ def chain_derivative():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your CHAIN expression -> ")
 
         else:
 
@@ -560,7 +597,7 @@ def exponential_derivative():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your EXPONENTIAL expression -> ")
 
         else:
 
@@ -616,7 +653,7 @@ def partial_derivative():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your PARTIAL expression -> ")
 
         else:
 
@@ -663,7 +700,7 @@ def partial_derivative():
 
 #multivariable function
 def multivariable_derivative(): 
-    print("\nPartial Mode\n")
+    print("\nMultivariable Mode\n")
     x, y = symbols('x y')
 
     global previous
@@ -674,7 +711,7 @@ def multivariable_derivative():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your MULTIVARIABLE expression -> ")
 
         else:
 
@@ -730,7 +767,7 @@ def integral_mode():
 
         if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
+            equation = input("Type your INTEGRAL expression -> ")
 
         else:
 
@@ -745,26 +782,44 @@ def integral_mode():
         elif equation =="clear":
 
             previous = 0            
+        elif equation == "switch":
 
-        elif equation[0:9] == "integral(" or equation[0:10] == "+integral(":
+            previous = 0
+            run_integral_mode = false;
+
+        elif equation[0:9] == "integral(" or equation[0:10] == "+integral(":        
             
             opening_paren = equation.find("(")
-            closing_paren = equation.find(")")
+            closing_paren = equation.rfind(")")
             elements = equation[opening_paren + 1: closing_paren]
             elements = elements.split(",")
             elements = [x.strip() for x in elements]
-            print(elements)
+
             integral = elements[0]
             variable = parse_expr(elements[1])
-            lower = elements[2]
-            upper = elements[3]
-            resultwlh = integrate(integral, (variable, lower, upper)) 
 
-            if previous == 0:
-                previous = resultwlh
-            
-            else:
-                previous += resultwlh
+            # indefinite
+            if len(elements) == 2:
+  
+                resultwithoutlh = integrate(integral, variable)
+
+                if previous == 0:
+                    previous = resultwithoutlh        
+                else:
+                    previous += resultwithoutlh
+                
+
+            elif len(elements) == 4:
+                lower = elements[2]
+                upper = elements[3]
+                resultwlh = integrate(integral, (variable, lower, upper)) 
+
+                if previous == 0:
+                    previous = resultwlh        
+                else:
+                    previous += resultwlh
+
+
         
         else:
 
@@ -783,10 +838,10 @@ def statistics_mode():
 
     global previous
 
-    rrun_statistics_mode = True
+    run_statistics_mode = True
 
 
-    while rrun_statistics_mode:
+    while run_statistics_mode:
         
         if previous == 0:
 
@@ -802,11 +857,15 @@ def statistics_mode():
 
             print("Come back soon!")
 
-            rrun_statistics_mode = False
+            run_statistics_mode = False
             
         elif equation =="clear":
 
             previous = 0
+        elif equation == "switch":
+
+            previous = 0
+            run_statistics_mode = false 
             
         else:
 
@@ -845,7 +904,9 @@ def algebra_onevariable():
         elif equation =="clear":
 
             previous = 0            
-
+        elif equation == "switch":
+            previous = 0 
+            run_algebra_onevariable_mode = false 
         elif equation[0:6] == "solve(" or equation[0:7] == "+solve(":
             
             opening_paren = equation.find("(")
@@ -881,7 +942,6 @@ def algebra_onevariable():
 
 def algebra_twovariables():
     print("Algebra Solver with Two Variables")    
-
     x, y = symbols('x y')
 
     global previous
@@ -907,35 +967,7 @@ def algebra_twovariables():
 
             previous = 0            
 
-        elif equation[0:6] == "solve(" or equation[0:7] == "+solve(":
-            
-            opening_paren = equation.find("(")
-            closing_paren = equation.find(")")
-            elements = equation[opening_paren + 1: closing_paren]
-            elements = elements.split(",")
-            elements = [x.strip() for x in elements]
-            print(elements)
-            algebra_equation = elements[0]
-            equationequal_1 = elements[1]
-            equation_1 = Eq(algebra_equation ,equationequal_1) 
-            algebra_equation_2 = elements[2]
-            equationequal_2 = elements[3]
-            equation_2 = Eq(algebra_equation_2 ,equationequal_2) 
-            x_variable = parse_expr(elements[4])
-            y_variable = parse_expr(elements[5])
-            
-            
-            solver = solve((equation_1 ,equation_2 ), (x_variable, y_variable)) 
-            print(solver)
-            
-            if previous == 0:
-
-                equation = input("Type your Solver expression -> ")
-
-            else:
-
-                equation = input(str(previous))
-                    
+        
         else:
 
             if previous == 0:
@@ -948,8 +980,47 @@ def algebra_twovariables():
 
                 previous = eval(str(previous) + equation)
 
+
 def algebra_threevariables():
     print("Algebra Solver with Three Variables")    
+    x, y, y = symbols('x y y')
+
+    global previous
+    run_algebra_threevariables_mode = True 
+    
+    while run_algebra_threevariables_mode:        
+
+        if previous == 0:
+
+            equation = input("Type your Solver expression -> ")
+
+        else:
+
+            equation = input(str(previous))
+
+        if equation == "quit":
+
+            print("Come back soon!")
+
+            run_algebra_threevariables_mode = False            
+
+        elif equation =="clear":
+
+            previous = 0            
+
+        
+        else:
+
+            if previous == 0:
+
+                previous = eval(equation)
+
+                previous = previous
+
+            else:
+
+                previous = eval(str(previous) + equation)
+
 
 def simplify_factor():
 
@@ -965,7 +1036,7 @@ def simplify_factor():
         
         if previous == 0:
 
-            equation = input("Type your statistics calculation -> ")
+            equation = input("Type your Algebra equation -> ")
 
         else:
 
