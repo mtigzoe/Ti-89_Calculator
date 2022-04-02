@@ -1,312 +1,286 @@
-# import math and cmath
+#import keyboard 
+from pynput.keyboard import Key
 
 from math import *
 
-from cmath import *
 from sympy.solvers import solve
 from sympy import * 
 from statistics import * 
-from sympy.matrices import Matrix
 import UserGuide 
 
 previous = 0
-
-
 
 # function to list modes
 
 def mode_menu():
 
-    print("Text-based calculator\n")
+    print("\nText-based calculator\n")
 
     print("Calculator Modes:\n") 
 
-    print("R) real") 
-
-    print("C) complex") 
-
+    print("R) real")     
     print("D) derivative")
     print("I) integral") 
-
     print("S) statistics") 
     print("A) Algebra")
     print("U) User Guides")
     print("Q) Quit")
 
-
-#derivative menu 
 def derivative_menu(): 
     print("1. Simple Rule")
     print("2. Power Rule")
     print("3. Product Rule")
-    print(" 4. Quotient Rule")
+    print("4. Quotient Rule")
     print("5. Chain Rule")
     print("6. Exponential")
     print("7. Partial Rule")
     print("8. Multivariable Rule")
     
-
 def algebra_solver_menu(): 
-    print("Algebra Solver")    
-    print("1. One variable")
-    print("2. Two variables")
-    print("3. Three variables")
+    print("\nAlgebra Options\n")    
+    print("1) Factor, Expand, Simplify, and Polynomials")
+    print("2) One variable")
+    print("3) Two variables")
+    print("4) Three variables")
 
-#User Guide Menu 
-def UserGuideMenu(): 
+def UserGuideMenuDisplay(): 
     print("\nUser Guide Menu\n")
     print("R) Real Number User Guide")
     print("D) Derivative User Guide")
     print("I) Integral User Guide")
     print("S) Statistics User Guide")
     print("A) Algebra User Guide")
+
+#User Guide Menu 
+def UserGuideMenu(): 
+    UserGuideMenuDisplay()
+
+    back = False
+
+    while back == False:
+        UserGuideOptions = input("\nWhich user guide would you like to read?")
+        UserGuideOptions = UserGuideOptions.lower()
+
+        if UserGuideOptions == "r" or UserGuideOptions == "real":
+            RealNumberInstructionsMenu()
+            
+            RealNumberInstructionsSelection()
+            
+        elif UserGuideOptions == "d" or UserGuideOptions == "derivative": 
+            UserGuide.DerivativesInstructions()
+        
+        elif UserGuideOptions == "i" or UserGuideOptions == "integral":
+            UserGuide.IntegralInstructions()
+            
+        elif UserGuideOptions== "s" or UserGuideOptions == "statistics":
+            UserGuide.StatisticsInstructions()
+            
+        elif UserGuideOptions == "a" or UserGuideOptions == "algebra":
+            UserGuide.AlgebraInstructions()
+
+        elif UserGuideOptions  == "o" or UserGuideOptions == "options":        
+            UserGuideMenuDisplay()
+
+        elif UserGuideOptions == 'back':
+            back = True
+
+        else: 
+            exit()   
+
+def RealNumberInstructionsMenu(): 
+    print("\nReal Number Functions\n")
+
+    print("R) Representation")
+    print("P) Power and logarithmic")
+    print("T) Trigonometry")
+    print("A) Angular Conversion")
+    print("H) Hyperbolic")
+    print("C) Constants")
+    
 # mode selection function
 
 def mode_selection_function():
 
-    
-
     while True:
 
         mode_selection = input("Which calculator mode would you like to use? ")
+        mode_selection = mode_selection.lower() 
 
-    
-
-        if mode_selection == "r":
-
+        if mode_selection == "r" or mode_selection == "real":
             calculateRealMode()
-
-        elif mode_selection == "c":    
-
+        elif mode_selection == "c" or mode_selection  == "complex":    
             calculateComplex()
-        elif mode_selection == "d":
-            derivative_menu_with_selections()
-        elif mode_selection == "i":
+        elif mode_selection == "d" or mode_selection  == "derivative":
+            derivative_menu()
+            derivative_rules_selection()
+            
+        elif mode_selection == "i" or mode_selection  == "integral":
             integral_mode()    
-        elif mode_selection == "s":
+        elif mode_selection == "s" or mode_selection  == "statistics":
             statistics_mode()
-        elif mode_selection == "a":
-            algebra_menu_with_selection()
-        elif mode_selection == "m":
-            matrix_function()    
-        elif mode_selection == "u":
-            UserGuideswithSelection()    
-        elif mode_selection == "options":
+        elif mode_selection == "a" or mode_selection  == "algebra":
+            
+            algebra_solver_menu()
+            algebra_mode_selection()
 
+        elif mode_selection == "u" or mode_selection  == "user" or mode_selection  == "user guides":
+            UserGuideMenu()
+        elif mode_selection == "o" or mode_selection  == "options":
             mode_menu()
-
         else: 
-
             exit()
 
 
 #Selection for derivative rules 
 def derivative_rules_selection():
-    derivative_selection = input("What derivative rule would you like to choose")
-    if derivative_selection == "simple": 
-        simple_derivative() 
-    elif derivative_selection == "power":
-        power_derivative()
-    elif derivative_selection == "product": 
-        product_derivative()
-    elif derivative_selection == "quotient":
-        quotient_derivative()
-    elif derivative_selection == "chain":
-        chain_derivative()
-    elif derivative_selection == "exponential":
-        exponential_derivative()
-    elif derivative_selection == "partial":
-        partial_derivative() 
-    elif derivative_selection == "multivariable": 
-        multivariable_derivative()
-    elif derivative_selection == "options":    
-        mode_menu()
-    elif derivative_selection == "switch":
-        mode_selection() 
-    elif derivative_selection == "derivative options":    
-        derivative_menu()
-    elif derivative_selection == "derivative switch":    
-        derivative_rules_selection()
-    else: 
-        exit() 
+    menu_back = False
+
+    while menu_back == False:
+
+        derivative_selection = input("What derivative rule would you like to choose")
+        derivative_selection = derivative_selection.lower() 
+        if derivative_selection == "simple" or derivative_selection  == "1": 
+            simple_derivative() 
+        elif derivative_selection == "power" or derivative_selection  == "2":
+            power_derivative()
+        elif derivative_selection == "product" or derivative_selection  == "3": 
+            product_derivative()
+        elif derivative_selection == "quotient" or derivative_selection  == "4":
+            quotient_derivative()
+        elif derivative_selection == "chain" or derivative_selection  == "5":
+            chain_derivative()
+        elif derivative_selection == "exponential" or derivative_selection == "6":
+            exponential_derivative()
+        elif derivative_selection == "partial" or derivative_selection == "7":
+            partial_derivative() 
+        elif derivative_selection == "multivariable" or derivative_selection  == "8": 
+            multivariable_derivative()
+        #elif derivative_selection  == "o" or derivative_selection == "options":    
+            #mode_menu()
+        elif derivative_selection  == "s" or derivative_selection == "switch":
+            mode_menu()
+            mode_selection_function() 
+        elif derivative_selection == "b" or derivative_selection == "back":
+            menu_back = True         
+        else: 
+            exit() 
 
 
 def algebra_mode_selection(): 
-    print("\nAlgebra solver\n")
-    algebra_selection = input("What kind of algebra solver would you like to choose?")
-    if algebra_selection == "1": 
-        algebra_onevariable() 
-    elif algebra_selection == "2":
-        algebra_twovariables()
-    elif algebra_selection == "3":  
-        algebra_threevariables()
-    elif algebra_selection == "4":
-        simplify_factor()   
-    else: 
-        exit()
+    print("\nAlgebra options\n")
+    
+    menu_back = False
+
+    while menu_back == False:
+        algebra_selection = input("Select an option: ")
+        algebra_selection  = algebra_selection .lower()
+
+        if algebra_selection == "1":
+            simplify_factor()   
+        elif algebra_selection == "2": 
+            algebra_onevariable() 
+        elif algebra_selection == "3":
+            algebra_twovariables()
+        elif algebra_selection == "4":  
+            algebra_threevariables()
+        
+        elif algebra_selection  == "s" or algebra_selection == "switch":
+            mode_menu()
+            mode_selection_function()     
+        elif algebra_selection == "b" or algebra_selection  == "back":     
+            menu_back = True 
+        else: 
+            exit()
 
 
-def UserGuide_Selection():
-    UserGuideOptions = input("Which user guide would you like to read?")
-    if UserGuideOptions== "r":
-        
-        UserGuide.RealNumberInstructions()
-    elif UserGuideOptions== "d": 
-        
-        UserGuide.DerivativesInstructions()
-    elif UserGuideOptions == "i":
-        
-        UserGuide.IntegralInstructions()
-    elif UserGuideOptions== "s":
-        UserGuide.StatisticsInstructions()    
-    elif UserGuideOptions == "a":
-        UserGuide.AlgebraInstructions()
-    elif UserGuideOptions == "switch":    
-        UserGuideswithSelection()
-    else: 
-        exit()    
+def RealNumberInstructionsSelection():
 
+    real_back = False
+
+    while real_back == False:
+
+        realnumberinstructionoptions = input("\nSelect an option.")
+        realnumberinstructionoptions  = realnumberinstructionoptions.lower()
+
+        if realnumberinstructionoptions  == "r" or realnumberinstructionoptions  == "representation": 
+            UserGuide.RepresentationInstructions()
+        
+        elif realnumberinstructionoptions  == "p" or realnumberinstructionoptions  == "power":         
+            UserGuide.PowerandLogarithmInstructions()        
+        
+        elif realnumberinstructionoptions  == "t" or realnumberinstructionoptions  == "trigonometry":                 
+            UserGuide.TrigonometryInstructions()
+
+        elif realnumberinstructionoptions  == "a" or realnumberinstructionoptions  == "angular":
+            UserGuide.AngularConversionInstructions()
+
+        elif realnumberinstructionoptions  == "h" or realnumberinstructionoptions  == "hyperbolic":                 
+            UserGuide.HyperbolicFunctionsInstructions()
+      
+        elif realnumberinstructionoptions  == "c" or realnumberinstructionoptions  == "constants":                 
+            UserGuide.ConstantsInstructions()
+            
+        elif realnumberinstructionoptions  == "back":
+            real_back = True
+             
+        elif realnumberinstructionoptions   == "o" or realnumberinstructionoptions == "options":    
+            RealNumberInstructionsMenu()
+
+        else:
+            exit()    
+        
 #The function prints the derivative menu with selections 
-def derivative_menu_with_selections():
-    derivative_menu()
-    derivative_rules_selection()
+#def derivative_menu_with_selections():
+#    derivative_menu()
+    #derivative_rules_selection()
 
-def algebra_menu_with_selection():
-    algebra_solver_menu()
-    algebra_mode_selection()
+#def algebra_menu_with_selection():
+
+    #algebra_solver_menu()
+    #algebra_mode_selection()
+
 #User Guides with Selections 
-def UserGuideswithSelection():
-    UserGuideMenu()
-    UserGuide_Selection()
+#def UserGuideswithSelection():
+    #UserGuideMenu()
+    #UserGuide_Selection()
+
 # calculator for real numbers
 
 def calculateRealMode():
 
     global previous
 
-
-
     run_real_mode = True
 
     print("\nReal Mode\n")
-
-
 
     # loop the real number calculator until user quits or switches modes
 
     while run_real_mode:
 
-        
-
         if previous == 0:
-
             equation = input("Type your REAL calculation -> ")
 
         else:
-
             equation = input(str(previous))
 
-
-
         if equation == "quit":
-
             print("Come back soon!")
-
             run_real_mode = False
 
-            
-
         elif equation =="clear":
-
             previous = 0
-
-            
 
         elif equation == "switch":
-
             previous = 0
-
             run_real_mode = False
 
-            
-
         else:
-
             if previous == 0:
-
                 previous = eval(equation)
-
             else:
-
                 previous = eval(str(previous) + equation)
 
-
-
-            previous = previous.real
-
-
-
-# calculator for complex numbers
-
-def calculateComplex():
-
-    global previous
-
-    run_complex_mode = True
-
-    print("\nComplex Mode\n")
-
-
-
-    # loop the complex number calculator until user quits or switches modes
-
-    while run_complex_mode:
-
-        
-
-        if previous == 0:
-
-            equation = input("Type your COMPLEX calculation -> ")
-
-        else:
-
-            equation = input(str(previous))
-
-
-
-        if equation == "quit":
-
-            print("Come back soon!")
-
-            run_complex_mode = False
-
-            
-
-        elif equation =="clear":
-
-            previous = 0
-
-            
-
-        elif equation == "switch":
-
-            previous = 0
-
-            run_complex_mode = False
-
-            
-
-        else:
-
-            if previous == 0:
-
-                previous = eval(equation)
-
-                previous = complex(previous)
-
-            else:
-
-                previous = eval(str(previous) + equation)
 
 
 
@@ -316,8 +290,6 @@ def simple_derivative():
     global previous
     run_simple_mode = True
 
-    
-    
     while run_simple_mode:        
 
         if previous == 0:
@@ -343,6 +315,15 @@ def simple_derivative():
             previous = 0
 
             run_simple_mode = False            
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_simple_mode = False 
+            derivative_rules_selection()   
+                
+
+            
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -398,6 +379,14 @@ def power_derivative():
             previous = 0
 
             run_power_mode = False            
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_power_mode = False 
+            derivative_rules_selection()   
+                
+
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -453,6 +442,15 @@ def product_derivative():
             previous = 0
 
             run_product_mode = False            
+
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_product_mode = False 
+            derivative_rules_selection()   
+                
+
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -508,6 +506,15 @@ def quotient_derivative():
             previous = 0
 
             run_quotient_mode = False            
+
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_quotient_mode = False 
+            derivative_rules_selection()   
+                
+
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -563,6 +570,15 @@ def chain_derivative():
             previous = 0
 
             run_chain_mode = False            
+
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_chain_mode = False 
+            derivative_rules_selection()   
+                
+
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -618,6 +634,15 @@ def exponential_derivative():
             previous = 0
 
             run_exponential_mode = False            
+
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_exponential_mode = False 
+            derivative_rules_selection()   
+                
+
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -674,6 +699,15 @@ def partial_derivative():
             previous = 0
 
             run_Partial_mode = False            
+
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_partial_mode = False 
+            derivative_rules_selection()   
+                
+
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -732,6 +766,15 @@ def multivariable_derivative():
             previous = 0
 
             run_multivariable_mode = False            
+
+        elif equation == "options":
+            derivative_menu()
+            
+            
+            run_multivariable_mode = False 
+            derivative_rules_selection()   
+                
+
         #derivative 
         elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
             start_of_expr = equation.find('(')
@@ -1064,52 +1107,9 @@ def simplify_factor():
 
                 previous = eval(str(previous) + equation)
 
-def matrix_function():
-    print("\nMatrix\n")
-    
-    global previous
-
-    run_matrix_mode = True
-
-
-    while run_matrix_mode:
-        
-        if previous == 0:
-
-            equation = input("Type your Matrix calculation -> ")
-
-        else:
-
-            equation = input(str(previous))
-
-
-
-        if equation == "quit":
-
-            print("Come back soon!")
-
-            run_matrix_mode = False
-            
-        elif equation =="clear":
-
-            previous = 0
-            
-        else:
-
-            if previous == 0:
-
-                previous = eval(equation)
-
-            else:
-
-                previous = eval(str(previous) + equation)
-
 
 # run
 
 mode_menu()
 
 mode_selection_function()
-
-
-
