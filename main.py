@@ -11,6 +11,8 @@ import UserGuide
 
 previous = 0
 
+modes_history = []
+
 
 
 # function to list modes
@@ -60,24 +62,22 @@ def UserGuideMenu():
     print("I) Integral User Guide")
     print("S) Statistics User Guide")
     print("A) Algebra User Guide")
-# mode selection function
 
+#Keep mode history under 100 entries
+def trim_mode_history():
+    modes_history.pop() if len(modes_history) > 99 else None
+
+# mode selection function
 def mode_selection_function():
 
-    
-
     while True:
-
+        trim_mode_history()
+        
         mode_selection = input("Which calculator mode would you like to use? ")
 
-    
-
         if mode_selection == "r":
-
             calculateRealMode()
-
         elif mode_selection == "c":    
-
             calculateComplex()
         elif mode_selection == "d":
             derivative_menu_with_selections()
@@ -122,7 +122,7 @@ def derivative_rules_selection():
     elif derivative_selection == "options":    
         mode_menu()
     elif derivative_selection == "switch":
-        mode_selection() 
+        mode_selection_function() 
     elif derivative_selection == "derivative options":    
         derivative_menu()
     elif derivative_selection == "derivative switch":    
@@ -184,9 +184,9 @@ def calculateRealMode():
 
     global previous
 
-
-
     run_real_mode = True
+
+    modes_history.append("Real Mode")
 
     print("\nReal Mode\n")
 
@@ -254,6 +254,8 @@ def calculateComplex():
 
     run_complex_mode = True
 
+    modes_history.append("Complex Mode")
+
     print("\nComplex Mode\n")
 
 
@@ -316,6 +318,8 @@ def simple_derivative():
     global previous
     run_simple_mode = True
 
+    modes_history.append("Simple Mode")
+
     
     
     while run_simple_mode:        
@@ -371,6 +375,8 @@ def power_derivative():
     x = Symbol('x') 
     global previous
     run_power_mode = True
+
+    modes_history.append("Power Mode")
     
    
     while run_power_mode:        
@@ -426,6 +432,8 @@ def product_derivative():
     x = Symbol('x') 
     global previous
     run_product_mode = True
+
+    modes_history.append("Product Mode")
     
    
     while run_product_mode:        
@@ -481,6 +489,8 @@ def quotient_derivative():
     x = Symbol('x') 
     global previous
     run_quotient_mode = True
+
+    modes_history.append("Quotient Mode")
     
    
     while run_quotient_mode:        
@@ -536,6 +546,8 @@ def chain_derivative():
     x = Symbol('x') 
     global previous
     run_chain_mode = True
+
+    modes_history.append("Chain Mode")
     
    
     while run_chain_mode:        
@@ -590,7 +602,9 @@ def exponential_derivative():
     print("\nexponential Mode\n")
     x = Symbol('x') 
     global previous
-    run_exponential_mode = True 
+    run_exponential_mode = True
+
+    modes_history.append("Exponential Mode")
     
    
     while run_exponential_mode:        
@@ -646,7 +660,9 @@ def partial_derivative():
     x, y = symbols('x y')
 
     global previous
-    run_Partial_mode = True 
+    run_Partial_mode = True
+
+    modes_history.append("Partial Mode")
     
    
     while run_Partial_mode:        
@@ -704,7 +720,9 @@ def multivariable_derivative():
     x, y = symbols('x y')
 
     global previous
-    run_multivariable_mode = True 
+    run_multivariable_mode = True
+
+    modes_history.append("Multivariable Mode")
     
    
     while run_multivariable_mode:        
@@ -761,7 +779,9 @@ def integral_mode():
     x, y = symbols('x y')
 
     global previous
-    run_integral_mode = True 
+    run_integral_mode = True
+
+    modes_history.append("Integral Mode")
     
     while run_integral_mode:        
 
@@ -840,6 +860,8 @@ def statistics_mode():
 
     run_statistics_mode = True
 
+    modes_history.append("Statistics Mode")
+
 
     while run_statistics_mode:
         
@@ -884,6 +906,8 @@ def algebra_onevariable():
 
     global previous
     run_algebra_onevariable_mode = True 
+
+    modes_history.append("Algebra Solver One Variable Mode")
     
     while run_algebra_onevariable_mode:        
 
@@ -945,7 +969,9 @@ def algebra_twovariables():
     x, y = symbols('x y')
 
     global previous
-    run_algebra_twovariables_mode = True 
+    run_algebra_twovariables_mode = True
+
+    modes_history.append("Algebra Solver Two Variable Mode")
     
     while run_algebra_twovariables_mode:        
 
@@ -986,7 +1012,9 @@ def algebra_threevariables():
     x, y, y = symbols('x y y')
 
     global previous
-    run_algebra_threevariables_mode = True 
+    run_algebra_threevariables_mode = True
+
+    modes_history.append("Algebra Solver Three Variable Mode")
     
     while run_algebra_threevariables_mode:        
 
@@ -1031,6 +1059,8 @@ def simplify_factor():
 
     run_algebra_simplify_factor = True
 
+    modes_history.append("Simplify Factor Mode")
+
 
     while run_algebra_simplify_factor:
         
@@ -1071,6 +1101,8 @@ def matrix_function():
 
     run_matrix_mode = True
 
+    modes_history.append("Matrix Mode")
+
 
     while run_matrix_mode:
         
@@ -1105,11 +1137,7 @@ def matrix_function():
                 previous = eval(str(previous) + equation)
 
 
-# run
 
-mode_menu()
-
-mode_selection_function()
-
-
-
+if __name__ == "__main__":
+    mode_menu()
+    mode_selection_function()
