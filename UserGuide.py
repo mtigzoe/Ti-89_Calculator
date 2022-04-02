@@ -129,7 +129,7 @@ def RealNumberInstructions():
 
 #Complex number 
 def ComplexNumberInstructions(): 
-    print("\Complex Number Instructions\n")
+    print("\nComplex Number Instructions\n")
 #Derivatives 
 def DerivativesInstructions(): 
     print("\nDerivatives Instructions\n")
