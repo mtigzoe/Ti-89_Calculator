@@ -1,4 +1,4 @@
-#import keyboard 
+import keyboard 
 from pynput.keyboard import Key
 
 from math import *
@@ -27,14 +27,15 @@ def mode_menu():
     print("Q) Quit")
 
 def derivative_menu(): 
-    print("1. Simple Rule")
-    print("2. Power Rule")
-    print("3. Product Rule")
-    print("4. Quotient Rule")
-    print("5. Chain Rule")
-    print("6. Exponential")
-    print("7. Partial Rule")
-    print("8. Multivariable Rule")
+    print("1) Simple Rule")
+    print("2) Power Rule")
+    print("3) Product Rule")
+    print("4) Quotient Rule")
+    print("5) Chain Rule")
+    print("6) Exponential")
+    print("7) Partial Rule")
+    print("8) Multivariable Rule")
+    print("B) Back")
     
 def algebra_solver_menu(): 
     print("\nAlgebra Options\n")    
@@ -42,6 +43,7 @@ def algebra_solver_menu():
     print("2) One variable")
     print("3) Two variables")
     print("4) Three variables")
+    print("B) Back")
 
 def UserGuideMenuDisplay(): 
     print("\nUser Guide Menu\n")
@@ -50,6 +52,7 @@ def UserGuideMenuDisplay():
     print("I) Integral User Guide")
     print("S) Statistics User Guide")
     print("A) Algebra User Guide")
+    print("B) Back")
 
 #User Guide Menu 
 def UserGuideMenu(): 
@@ -58,8 +61,9 @@ def UserGuideMenu():
     back = False
 
     while back == False:
-        UserGuideOptions = input("\nWhich user guide would you like to read?")
+        UserGuideOptions = input("Choose a user guide: ")
         UserGuideOptions = UserGuideOptions.lower()
+        UserGuideOptions = UserGuideOptions.strip()
 
         if UserGuideOptions == "r" or UserGuideOptions == "real":
             RealNumberInstructionsMenu()
@@ -81,7 +85,7 @@ def UserGuideMenu():
         elif UserGuideOptions  == "o" or UserGuideOptions == "options":        
             UserGuideMenuDisplay()
 
-        elif UserGuideOptions == 'back':
+        elif UserGuideOptions   == "b" or UserGuideOptions == "back":
             back = True
 
         else: 
@@ -96,6 +100,7 @@ def RealNumberInstructionsMenu():
     print("A) Angular Conversion")
     print("H) Hyperbolic")
     print("C) Constants")
+    print("B) Back")
     
 # mode selection function
 
@@ -105,6 +110,7 @@ def mode_selection_function():
 
         mode_selection = input("Which calculator mode would you like to use? ")
         mode_selection = mode_selection.lower() 
+        mode_selection = mode_selection.strip()
 
         if mode_selection == "r" or mode_selection == "real":
             calculateRealMode()
@@ -137,8 +143,9 @@ def derivative_rules_selection():
 
     while menu_back == False:
 
-        derivative_selection = input("What derivative rule would you like to choose")
+        derivative_selection = input("Select an option: ")
         derivative_selection = derivative_selection.lower() 
+        derivative_selection = derivative_selection.strip()
         if derivative_selection == "simple" or derivative_selection  == "1": 
             simple_derivative() 
         elif derivative_selection == "power" or derivative_selection  == "2":
@@ -155,8 +162,7 @@ def derivative_rules_selection():
             partial_derivative() 
         elif derivative_selection == "multivariable" or derivative_selection  == "8": 
             multivariable_derivative()
-        #elif derivative_selection  == "o" or derivative_selection == "options":    
-            #mode_menu()
+        
         elif derivative_selection  == "s" or derivative_selection == "switch":
             mode_menu()
             mode_selection_function() 
@@ -167,13 +173,14 @@ def derivative_rules_selection():
 
 
 def algebra_mode_selection(): 
-    print("\nAlgebra options\n")
+    
     
     menu_back = False
 
     while menu_back == False:
         algebra_selection = input("Select an option: ")
         algebra_selection  = algebra_selection .lower()
+        algebra_selection  = algebra_selection.strip()
 
         if algebra_selection == "1":
             simplify_factor()   
@@ -199,8 +206,9 @@ def RealNumberInstructionsSelection():
 
     while real_back == False:
 
-        realnumberinstructionoptions = input("\nSelect an option.")
+        realnumberinstructionoptions = input("\nSelect an option: ")
         realnumberinstructionoptions  = realnumberinstructionoptions.lower()
+        realnumberinstructionoptions  = realnumberinstructionoptions.strip()
 
         if realnumberinstructionoptions  == "r" or realnumberinstructionoptions  == "representation": 
             UserGuide.RepresentationInstructions()
@@ -220,7 +228,7 @@ def RealNumberInstructionsSelection():
         elif realnumberinstructionoptions  == "c" or realnumberinstructionoptions  == "constants":                 
             UserGuide.ConstantsInstructions()
             
-        elif realnumberinstructionoptions  == "back":
+        elif realnumberinstructionoptions   == "b" or realnumberinstructionoptions  == "back":
             real_back = True
              
         elif realnumberinstructionoptions   == "o" or realnumberinstructionoptions == "options":    
@@ -229,20 +237,6 @@ def RealNumberInstructionsSelection():
         else:
             exit()    
         
-#The function prints the derivative menu with selections 
-#def derivative_menu_with_selections():
-#    derivative_menu()
-    #derivative_rules_selection()
-
-#def algebra_menu_with_selection():
-
-    #algebra_solver_menu()
-    #algebra_mode_selection()
-
-#User Guides with Selections 
-#def UserGuideswithSelection():
-    #UserGuideMenu()
-    #UserGuide_Selection()
 
 # calculator for real numbers
 
@@ -260,9 +254,11 @@ def calculateRealMode():
 
         if previous == 0:
             equation = input("Type your REAL calculation -> ")
+            equation = equation.strip()  
 
         else:
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
             print("Come back soon!")
@@ -295,10 +291,12 @@ def simple_derivative():
         if previous == 0:
 
             equation = input("Type your SIMPLE expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -359,10 +357,12 @@ def power_derivative():
         if previous == 0:
 
             equation = input("Type your POWER expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -422,10 +422,12 @@ def product_derivative():
         if previous == 0:
 
             equation = input("Type your PRODUCT expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -486,10 +488,12 @@ def quotient_derivative():
         if previous == 0:
 
             equation = input("Type your QUOTIENT expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -550,10 +554,12 @@ def chain_derivative():
         if previous == 0:
 
             equation = input("Type your CHAIN expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -614,10 +620,12 @@ def exponential_derivative():
         if previous == 0:
 
             equation = input("Type your EXPONENTIAL expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -679,10 +687,12 @@ def partial_derivative():
         if previous == 0:
 
             equation = input("Type your PARTIAL expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -746,10 +756,12 @@ def multivariable_derivative():
         if previous == 0:
 
             equation = input("Type your MULTIVARIABLE expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -811,10 +823,12 @@ def integral_mode():
         if previous == 0:
 
             equation = input("Type your INTEGRAL expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -889,10 +903,12 @@ def statistics_mode():
         if previous == 0:
 
             equation = input("Type your statistics calculation -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
 
 
@@ -933,10 +949,12 @@ def algebra_onevariable():
         if previous == 0:
 
             equation = input("Type your Solver expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -995,10 +1013,12 @@ def algebra_twovariables():
         if previous == 0:
 
             equation = input("Type your Solver expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -1036,10 +1056,12 @@ def algebra_threevariables():
         if previous == 0:
 
             equation = input("Type your Solver expression -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
         if equation == "quit":
 
@@ -1080,10 +1102,12 @@ def simplify_factor():
         if previous == 0:
 
             equation = input("Type your Algebra equation -> ")
+            equation = equation.strip()
 
         else:
 
             equation = input(str(previous))
+            equation = equation.strip()
 
 
 
