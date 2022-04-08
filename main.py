@@ -1,12 +1,32 @@
-import keyboard 
-from pynput.keyboard import Key
+from pynput import keyboard
+import threading
+import time 
 
+#import keyboard
+
+#from scipy.misc import derivative
+#from scipy import * 
 from math import *
 
 from sympy.solvers import solve
 from sympy import * 
 from statistics import * 
 import UserGuide 
+
+
+from sympy import solve
+from sympy.abc import x, y, z, a, b
+from sympy.parsing.sympy_parser import parse_expr
+
+def equationSolver(string_):
+    try:
+        lhs =  parse_expr(string_.split("=")[0])
+        rhs =  parse_expr(string_.split("=")[1])
+        solution = solve(lhs-rhs)
+        return solution
+    except:
+        print("invalid equation")
+
 
 previous = 0
 
@@ -105,17 +125,18 @@ def RealNumberInstructionsMenu():
 # mode selection function
 
 def mode_selection_function():
+    
+
 
     while True:
+        
 
         mode_selection = input("Which calculator mode would you like to use? ")
         mode_selection = mode_selection.lower() 
         mode_selection = mode_selection.strip()
 
         if mode_selection == "r" or mode_selection == "real":
-            calculateRealMode()
-        elif mode_selection == "c" or mode_selection  == "complex":    
-            calculateComplex()
+            calculateRealMode()        
         elif mode_selection == "d" or mode_selection  == "derivative":
             derivative_menu()
             derivative_rules_selection()
@@ -322,17 +343,6 @@ def simple_derivative():
                 
 
             
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
-        
         else:
 
             if previous == 0:
@@ -387,16 +397,6 @@ def power_derivative():
             derivative_rules_selection()   
                 
 
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
         
         else:
 
@@ -453,16 +453,6 @@ def product_derivative():
             derivative_rules_selection()   
                 
 
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
         
         else:
 
@@ -516,19 +506,8 @@ def quotient_derivative():
             
             
             run_quotient_mode = False 
-            derivative_rules_selection()   
-                
+            derivative_rules_selection()                   
 
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
         
         else:
 
@@ -585,16 +564,6 @@ def chain_derivative():
             derivative_rules_selection()   
                 
 
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
         
         else:
 
@@ -651,16 +620,6 @@ def exponential_derivative():
             derivative_rules_selection()   
                 
 
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
         
         else:
 
@@ -718,16 +677,6 @@ def partial_derivative():
             derivative_rules_selection()   
                 
 
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
         
         else:
 
@@ -787,16 +736,6 @@ def multivariable_derivative():
             derivative_rules_selection()   
                 
 
-        #derivative 
-        elif equation[0:6] == "deriv(" or equation[0:7] == "+deriv(":
-            start_of_expr = equation.find('(')
-            f = parse_expr(equation[start_of_expr+1:-1])
-        
-            if previous == 0:
-                previous = f.diff(x) 
-            
-            else:
-                previous += f.diff(x) 
         
         else:
 
@@ -939,7 +878,6 @@ def statistics_mode():
 def algebra_onevariable(): 
 
     print("\n Algebra Solver One Variable\n")
-    x = Symbol('x')
 
     global previous
     run_algebra_onevariable_mode = True 
@@ -971,24 +909,20 @@ def algebra_onevariable():
         elif equation[0:6] == "solve(" or equation[0:7] == "+solve(":
             
             opening_paren = equation.find("(")
-            closing_paren = equation.find(")")
+            closing_paren = equation.rfind(")")
             elements = equation[opening_paren + 1: closing_paren]
-            elements = elements.split(",")
-            elements = [x.strip() for x in elements]
-            print(elements)
-            algebra_equation = elements[0]
-            variable = parse_expr(elements[1])
-            
-            solver = solve(algebra_equation, (variable)) 
-            print(solver)
-            if previous == 0:
+#            elements = elements.split(",")
+            #elements = [x.strip() for x in elements]
+            #equationSolver(elements)
+            lhs =  parse_expr(elements.split("=")[0])
+            rhs =  parse_expr(elements.split("=")[1])
+            solution = solve(lhs-rhs)
+            if previous == 0: 
+                previous = solution 
 
-                equation = input("Type your Solver expression -> ")
-
-            else:
-
-                equation = input(str(previous))
-                    
+            else:     
+                previous += solution
+                   
         else:
 
             if previous == 0:
@@ -1000,92 +934,6 @@ def algebra_onevariable():
             else:
 
                 previous = eval(str(previous) + equation)
-
-def algebra_twovariables():
-    print("Algebra Solver with Two Variables")    
-    x, y = symbols('x y')
-
-    global previous
-    run_algebra_twovariables_mode = True 
-    
-    while run_algebra_twovariables_mode:        
-
-        if previous == 0:
-
-            equation = input("Type your Solver expression -> ")
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.strip()
-
-        if equation == "quit":
-
-            print("Come back soon!")
-
-            run_algebra_twovariables_mode = False            
-
-        elif equation =="clear":
-
-            previous = 0            
-
-        
-        else:
-
-            if previous == 0:
-
-                previous = eval(equation)
-
-                previous = previous
-
-            else:
-
-                previous = eval(str(previous) + equation)
-
-
-def algebra_threevariables():
-    print("Algebra Solver with Three Variables")    
-    x, y, y = symbols('x y y')
-
-    global previous
-    run_algebra_threevariables_mode = True 
-    
-    while run_algebra_threevariables_mode:        
-
-        if previous == 0:
-
-            equation = input("Type your Solver expression -> ")
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.strip()
-
-        if equation == "quit":
-
-            print("Come back soon!")
-
-            run_algebra_threevariables_mode = False            
-
-        elif equation =="clear":
-
-            previous = 0            
-
-        
-        else:
-
-            if previous == 0:
-
-                previous = eval(equation)
-
-                previous = previous
-
-            else:
-
-                previous = eval(str(previous) + equation)
-
 
 def simplify_factor():
 
@@ -1131,9 +979,7 @@ def simplify_factor():
 
                 previous = eval(str(previous) + equation)
 
-
-# run
-
 mode_menu()
 
 mode_selection_function()
+

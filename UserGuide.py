@@ -116,7 +116,8 @@ def ComplexNumberInstructions():
 #Derivatives 
 def DerivativesInstructions(): 
     print("\nDerivatives Instructions\n")
-    print("It has different eight derivatives rules: Simple, Power, Product, Quotient, Chain, Exponential, Partial and Multivariable. For example, you can type 'deriv(x**2, x)''.")  
+    print("It has different eight derivatives rules: Simple, Power, Product, Quotient, Chain, Exponential, Partial and Multivariable.\n") 
+    print("For example, you can type 'diff(x**2, x)''.\n")  
     
 #integral 
 def IntegralInstructions(): 
@@ -126,22 +127,25 @@ def IntegralInstructions():
 def StatisticsInstructions(): 
     print("\nStatistics Instructions\n")
 
-    print("mean()                Arithmetic mean (average) of data.")
-    print("fmean()               Fast, floating point arithmetic mean.")
-    print("geometric_mean()      Geometric mean of data.")
-    print("harmonic_mean()       Harmonic mean of data.")
-    print("median()              Median (middle value) of data.")
-    print("median_low()          Low median of data.")
-    print("median_high()         High median of data.")
-    print("median_grouped()      Median, or 50th percentile, of grouped data.")
-    print("mode()                Mode (most common value) of data.")
-    print("multimode()           List of modes (most common values of data).")
-    print("quantiles()           Divide data into intervals with equal probability.")
+    print("mean([_,_,_])                Arithmetic mean (average) of data.")
+    print("fmean([_,_,_])               Fast, floating point arithmetic mean.")
+    print("geometric_mean([_,_,_])      Geometric mean of data.")
+    print("harmonic_mean([_,_,_])       Harmonic mean of data.")
+    print("median([_,_,_])              Median (middle value) of data.")
+    print("median_low([_,_,_])          Low median of data.")
+    print("median_high([_,_,_])         High median of data.")
+    print("median_grouped([_,_,_])      Median, or 50th percentile, of grouped data.")
+    print("mode([_,_,_])                Mode (most common value) of data.")
+    print("multimode([_,_,_])           List of modes (most common values of data).")
+    print("quantiles([_,_,_])           Divide data into intervals with equal probability.")
 
 #Algebra 
 def AlgebraInstructions(): 
     print("\nAlgebra Instructions\n")
-    print("Usuing simplify() - Simplifies the given expression.")
-    print("poly() - Efficiently transform an expression into a polynomial.")
-    print("factor() - The factor of given expression.")
-    print("Expand() - Expands the given expression")
+    print("Usuing simplify(_) - Simplifies the given expression.")
+    print("poly(_) - Efficiently transform an expression into a polynomial.")
+    print("factor(_) - The factor of given expression.")
+    print("Expand(_) - Expands the given expression")
+    print("solve(_,_) - Solve for a variable")
+    print("solve(_,_,_) - Solve for two variables")
+    print("solve(_,_,_) - Solve for three variables")
