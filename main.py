@@ -11,6 +11,7 @@ previous = 0
 
 # function to list modes
 
+
 def mode_menu():
 
     print("\nText-based calculator\n")
@@ -46,12 +47,14 @@ def algebra_solver_menu():
 
 def UserGuideMenuSelectionDisplay(): 
     print("\nUser Guide Menu\n")
+    
     print("R) Real Number User Guide")
     print("D) Derivative User Guide")
     print("I) Integral User Guide")
     print("S) Statistics User Guide")
     print("A) Algebra User Guide")
     print("B) Back")
+
 def RealNumberInstructionsMenu(): 
     print("\nReal Number Functions\n")
 
@@ -63,9 +66,8 @@ def RealNumberInstructionsMenu():
     print("C) Constants")
     print("B) Back")
     
-# mode selection function
 
-def mode_selection_function():    
+def         mode_selection_function():    
 
 
     while True:
@@ -77,7 +79,7 @@ def mode_selection_function():
         mode_selection = mode_selection.strip()
 
         if mode_selection == "r" or mode_selection == "real":
-            calculateRealMode()        
+            RealModeFunction()        
         elif mode_selection == "d" or mode_selection  == "derivative":
             derivative_menu()
             derivative_rules_selection()
@@ -166,7 +168,7 @@ def UserGuideMenuSelection():
 
     while back == False:        
 
-        UserGuideOptions = input("Choose a user guide: ")
+        UserGuideOptions = input('Choose a user guide/type "o" to view the options: ')
         UserGuideOptions = UserGuideOptions.lower()
         UserGuideOptions = UserGuideOptions.strip()
 
@@ -201,7 +203,7 @@ def RealNumberInstructionsSelection():
 
     while real_back == False:
 
-        realnumberinstructionoptions = input("\nSelect an option: ")
+        realnumberinstructionoptions = input('\nSelect an option/type "o" to view the options: ')
         realnumberinstructionoptions  = realnumberinstructionoptions.lower()
         realnumberinstructionoptions  = realnumberinstructionoptions.strip()
 
@@ -224,6 +226,7 @@ def RealNumberInstructionsSelection():
             UserGuide.ConstantsInstructions()
             
         elif realnumberinstructionoptions   == "b" or realnumberinstructionoptions  == "back":
+            UserGuideMenuSelectionDisplay()
             real_back = True
              
         elif realnumberinstructionoptions   == "o" or realnumberinstructionoptions == "options":    
@@ -231,31 +234,24 @@ def RealNumberInstructionsSelection():
 
         else:
             exit()    
-        print('\nType "o" to view the options.')
-
-# calculator for real numbers
-
-def calculateRealMode():
+        
+def RealModeFunction():
+    print("\nType your equation in real number mode:\n")
 
     global previous
 
     run_real_mode = True
 
-    print("\nReal Mode\n")
+    
 
 
     while run_real_mode:
 
     
-        if previous == 0:
-            equation = input("Type your REAL calculation -> ")
-            equation = equation.lower()
-            equation = equation.strip()  
-
-        else:
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
             run_real_mode = False
@@ -277,24 +273,19 @@ def calculateRealMode():
         
 
 def simple_derivative(): 
-    print("\nSimple Mode\n")
+    print("\nType your equation in simple derivative mode:\n")
     x = Symbol('x') 
     global previous
     run_simple_mode = True
 
     while run_simple_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your SIMPLE expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
+    
 
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation  == "q" or equation == "quit":
 
@@ -323,7 +314,7 @@ def simple_derivative():
                 previous = eval(str(previous) + equation)
 
 def power_derivative(): 
-    print("\nPower Mode\n")
+    print("\nType your equation in power derivative mode:\n")
     x = Symbol('x') 
     global previous
     run_power_mode = True
@@ -331,17 +322,12 @@ def power_derivative():
    
     while run_power_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your POWER expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
+        
 
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation  == "q" or equation == "quit":
 
@@ -370,7 +356,7 @@ def power_derivative():
                 previous = eval(str(previous) + equation)
 
 def product_derivative():
-    print("\nProduct Mode\n")
+    print("\nType your equation in product derivative mode:\n")
     x = Symbol('x') 
     global previous
     run_product_mode = True
@@ -378,17 +364,10 @@ def product_derivative():
    
     while run_product_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your PRODUCT expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -418,7 +397,7 @@ def product_derivative():
                 previous = eval(str(previous) + equation)
 
 def quotient_derivative():
-    print("\nQuotient Mode\n")
+    print("\nType your equation in quotient derivative mode:\n")
     x = Symbol('x') 
     global previous
     run_quotient_mode = True
@@ -426,17 +405,10 @@ def quotient_derivative():
    
     while run_quotient_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your QUOTIENT expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -465,7 +437,7 @@ def quotient_derivative():
                 previous = eval(str(previous) + equation)
 
 def chain_derivative():
-    print("\nChain Mode\n")
+    print("\nType your equation in chain derivative mode:\n")
     x = Symbol('x') 
     global previous
     run_chain_mode = True
@@ -473,17 +445,9 @@ def chain_derivative():
    
     while run_chain_mode:        
 
-        if previous == 0:
-
-            equation = input("Type your CHAIN expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -513,7 +477,7 @@ def chain_derivative():
                 previous = eval(str(previous) + equation)
 
 def exponential_derivative():
-    print("\nexponential Mode\n")
+    print("\nType your equation in exponential mode:\n")
     x = Symbol('x') 
     global previous
     run_exponential_mode = True 
@@ -521,17 +485,10 @@ def exponential_derivative():
    
     while run_exponential_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your EXPONENTIAL expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -561,7 +518,7 @@ def exponential_derivative():
                 previous = eval(str(previous) + equation)
 
 def partial_derivative():
-    print("\nPartial Mode\n")
+    print("\nType your equation in partial derivative mode:\n")
     x, y = symbols('x y')
 
     global previous
@@ -570,17 +527,10 @@ def partial_derivative():
    
     while run_Partial_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your PARTIAL expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -612,7 +562,7 @@ def partial_derivative():
 
 
 def multivariable_derivative(): 
-    print("\nMultivariable Mode\n")
+    print("\nType your equation in multivariable mode:\n")
     x, y = symbols('x y')
 
     global previous
@@ -621,17 +571,10 @@ def multivariable_derivative():
    
     while run_multivariable_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your MULTIVARIABLE expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -662,7 +605,7 @@ def multivariable_derivative():
 
     
 def integral_mode(): 
-    print("\nIntegral\n")
+    print("\nType your equation in integral mode:\n")
     x, y = symbols('x y')
 
     global previous
@@ -670,17 +613,10 @@ def integral_mode():
     
     while run_integral_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your INTEGRAL expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -741,7 +677,7 @@ def integral_mode():
                 previous = eval(str(previous) + equation)
 
 def statistics_mode(): 
-    print("\nStatistics\n")
+    print("\nType your equation in statistics mode:\n")
 
     global previous
 
@@ -750,17 +686,10 @@ def statistics_mode():
 
     while run_statistics_mode:
         
-        if previous == 0:
 
-            equation = input("Type your statistics calculation -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -797,24 +726,17 @@ def equationSolver(string_):
 
 def algebra_solver_function(): 
 
-    print("\n Algebra Solver One Variable\n")
+    print("\nType your equation in algebra solver mode:\n")
 
     global previous
     run_algebra_solver_function_mode = True 
     
     while run_algebra_solver_function_mode:        
 
-        if previous == 0:
 
-            equation = input("Type your Solver expression -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
@@ -854,7 +776,7 @@ def algebra_solver_function():
 
 def simplify_factor():
 
-    print("\nSimlify/Factor\n")
+    print("\nType your equation in simlifying/factoring mode:\n")
     x = symbols('x')
 
     global previous
@@ -864,17 +786,10 @@ def simplify_factor():
 
     while run_algebra_simplify_factor:
         
-        if previous == 0:
 
-            equation = input("Type your Algebra equation -> ")
-            equation = equation.lower()
-            equation = equation.strip()
-
-        else:
-
-            equation = input(str(previous))
-            equation = equation.lower()
-            equation = equation.strip()
+        equation = input(str(previous))
+        equation = equation.lower()
+        equation = equation.strip()
 
         if equation == "q" or equation == "quit":
 
