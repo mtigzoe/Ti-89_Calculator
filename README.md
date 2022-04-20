@@ -21,6 +21,8 @@ Clone or copy the code in main.py and UserGuide.py. Ensure that they are in the 
 In the command line or terminal, navigate to the directory where main.py and UserGuide.py are.
   
 Enter: "python main.py". This launches the calculator.
+ 
+&nbsp;
   
 The calculator will begin by listing the different modes:
   
@@ -39,10 +41,15 @@ User Guide (to get a list of functions within the other modes and to help answer
 &nbsp;
   
 To use the real mode, type "r", "R", or "real" from the main screen.
+ 
 To use the real mode, type "d", "D", or "derivatives" from the main screen.
+ 
 To use the real mode, type "i", "I", or "integral" from the main screen.
+ 
 To use the real mode, type "s", "S", or "statistics" from the main screen.
+ 
 To use the real mode, type "a", "A", or "algebra" from the main screen.
+ 
 To use the real mode, type "u", "U", or "user" from the main screen.
   
 &nbsp;
@@ -53,7 +60,7 @@ The calculator will keep building on itself as you enter formulas, so if you eve
   
 You can also switch modes by typing "switch" at anytime in a mode. You will then be prompted to pick a new mode.
   
-"back"
+You can also go back a screen by typing "b" or "back" at any time. 
   
 &nbsp;
 
@@ -80,9 +87,13 @@ No license available.
 **Contributions**
 
 mtigzoe
+
 georgmzimmer
+
 piknikki
+
 TLMozart3
+
 Webgyrl2
 
 
