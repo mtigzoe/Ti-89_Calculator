@@ -1,5 +1,5 @@
 #User Guide 
-#https://docs.python.org/3/library/math.html
+
 #Real number
 def RepresentationInstructions(): 
 
@@ -35,27 +35,27 @@ def PowerandLogarithmInstructions():
 
     print('{0:10}  {1}'.format("log10(x)", "The base-10 logarithm of x. This is usually more accurate than log(x, 10)."))                                        
 
-    print('{0:10}  {1}'.format("pow(x, y)","x raised to the power y."))                                        
-        
+    print('{0:10}  {1}'.format("pow(x, y)","x raised to the power y."))                                                
     
     print('{0:10}  {1}'.format("sqrt(x)", "The square root of x."))                                        
     
 def TrigonometryInstructions():
     print("\nTrigonometric functions\n")    
-    print("acos(x")
-    print("The arc cosine of x, in radians. The result is between 0 and pi.")
-    print("math.asin(x)")
-    print("The arc sine of x, in radians. The result is between -pi/2 and pi/2.")
-    print("atan(x)")
-    print("The arc tangent of x, in radians. The result is between -pi/2 and pi/2.")
-    print("atan2(y, x)")
-    print("atan(y / x), in radians. The result is between -pi and pi.")
-    print(".cos(x)")
-    print("The cosine of x radians.")
-    print("math.sin(x)")
-    print("The sine of x radians.")
-    print("math.tan(x)")
-    print("The tangent of x radians.")
+
+    print('{0:10}  {1}'.format("acos(x", "The arc cosine of x, in radians. The result is between 0 and pi."))
+    
+    print('{0:10}  {1}'.format("asin(x)", "The arc sine of x, in radians. The result is between -pi/2 and pi/2."))    
+
+    print('{0:10}  {1}'.format("atan(x)", "The arc tangent of x, in radians. The result is between -pi/2 and pi/2."))    
+
+    print('{0:10}  {1}'.format("atan2(y, x)", "atan(y / x), in radians. The result is between -pi and pi."))    
+
+    print('{0:10}  {1}'.format("cos(x)", "The cosine of x radians."))    
+
+    print('{0:10}  {1}'.format("sin(x)", "The sine of x radians."))    
+
+    print('{0:10}  {1}'.format("tan(x)", "The tangent of x radians."))
+    
 
 def AngularConversionInstructions(): 
     print("\nAngular Conversion\n")
@@ -110,38 +110,44 @@ def ConstantsInstructions():
 
     
 
-#Complex number 
-def ComplexNumberInstructions(): 
-    print("\Complex Number Instructions\n")
 #Derivatives 
 def DerivativesInstructions(): 
     print("\nDerivatives Instructions\n")
-    print("It has different eight derivatives rules: Simple, Power, Product, Quotient, Chain, Exponential, Partial and Multivariable. For example, you can type 'deriv(x**2, x)''.")  
+    print("It has different eight derivatives rules: Simple, Power, Product, Quotient, Chain, Exponential, Partial and Multivariable.\n") 
+    print("For example, you can type 'diff(x**2, x)''.\n")  
     
 #integral 
 def IntegralInstructions(): 
     print("\nIntegral Instructions\n")    
-    print("It has infinite and definite integrals. For example, you can type 'integral(2*x,x)' or 'integral(2*x, x, 1, 2)'")
+    print("It has infinite and definite integrals.\n")
+    print("For example, you can type 'integral(2*x,x)' or 'integral(2*x, x, 1, 2)'\n")
+
 #Statistics 
 def StatisticsInstructions(): 
     print("\nStatistics Instructions\n")
 
-    print("mean()                Arithmetic mean (average) of data.")
-    print("fmean()               Fast, floating point arithmetic mean.")
-    print("geometric_mean()      Geometric mean of data.")
-    print("harmonic_mean()       Harmonic mean of data.")
-    print("median()              Median (middle value) of data.")
-    print("median_low()          Low median of data.")
-    print("median_high()         High median of data.")
-    print("median_grouped()      Median, or 50th percentile, of grouped data.")
-    print("mode()                Mode (most common value) of data.")
-    print("multimode()           List of modes (most common values of data).")
-    print("quantiles()           Divide data into intervals with equal probability.")
+    print('{0:10}  {1}'.format("mean([_,_,_])", "Arithmetic mean (average) of data."))
+    print('{0:10}  {1}'.format("fmean([_,_,_])", "Fast, floating point arithmetic mean."))
+    print('{0:10}  {1}'.format("geometric_mean([_,_,_])", "Geometric mean of data."))
+    print('{0:10}  {1}'.format("harmonic_mean([_,_,_])", "Harmonic mean of data."))
+    print('{0:10}  {1}'.format("median([_,_,_])", "Median (middle value) of data."))
+    print('{0:10}  {1}'.format("median_low([_,_,_])", "Low median of data."))
+    print('{0:10}  {1}'.format("median_high([_,_,_])", "High median of data."))
+    print('{0:10}  {1}'.format("median_grouped([_,_,_])", "Median, or 50th percentile, of grouped data."))
+    print('{0:10}  {1}'.format("mode([_,_,_])", "Mode (most common value) of data."))
+    print('{0:10}  {1}'.format("multimode([_,_,_])", "List of modes (most common values of data)."))
+    print('{0:10}  {1}'.format("quantiles([_,_,_])", "Divide data into intervals with equal probability."))    
+    print('{0:10}  {1}'.format("pstdev(_,_,_)", "Population standard deviation of data."))
+    print('{0:10}  {1}'.format("pvariance([_,_,_])", "Population variance of data."))
+
+print('{0:10}  {1}'.format("stdev([_,_,_])", "Sample standard deviation of data."))
+print('{0:10}  {1}'.format("pvariance([_,_,_])", "Sample variance of data."))
 
 #Algebra 
 def AlgebraInstructions(): 
     print("\nAlgebra Instructions\n")
-    print("Usuing simplify() - Simplifies the given expression.")
-    print("poly() - Efficiently transform an expression into a polynomial.")
-    print("factor() - The factor of given expression.")
-    print("Expand() - Expands the given expression")
+    print('{0:10}  {1}'.format("Usuing simplify(_)", "Simplifies the given expression."))
+    print('{0:10}  {1}'.format("poly(_)", "Efficiently transform an expression into a polynomial."))
+    print('{0:10}  {1}'.format("factor(_)", "The factor of given expression."))
+    print('{0:10}  {1}'.format("Expand(_)", "Expands the given expression"))
+    print('{0:10}  {1}'.format("solve(_ = _)", "Solve for a variable"))
