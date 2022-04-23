@@ -10,10 +10,12 @@ This application is a command line calculator designed for blind or visually imp
 
 **Requirements prior to usage:**
 
-Install [Pipenv](https://pipenv.pypa.io/en/latest/)
+Install [Pipenv](https://pipenv.pypa.io/en/latest/):
+
 `pip install --user pipenv`
 
 Install the required libraries from the Pipfile.lock file:
+
 `pipenv sync`
 
 &nbsp;
