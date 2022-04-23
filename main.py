@@ -1,3 +1,5 @@
+import keyboard
+
 from math import *
 from sympy import *
 
@@ -780,7 +782,7 @@ def algebra_solver_function():
 
 def simplify_factor():
 
-    print("\nType your equation in simlifying/factoring mode:\n")
+    print("\nType your equation in simplifying/factoring mode:\n")
     x = symbols("x")
 
     global previous
@@ -815,4 +817,5 @@ def simplify_factor():
 
 
 if __name__ == "__main__":
+    keyboard.add_hotkey("esc", lambda: print("Hello!"))
     mode_selection_function()
