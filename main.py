@@ -1,3 +1,4 @@
+from unittest import result
 import keyboard
 
 from math import *
@@ -816,6 +817,13 @@ def simplify_factor():
                 previous = eval(str(previous) + equation)
 
 
+def return_to_main():
+    if previous == 0:
+        mode_selection_function()
+    else:
+        previous = 0
+
+
 if __name__ == "__main__":
-    keyboard.add_hotkey("esc", lambda: print("Hello!"))
+    keyboard.add_hotkey("esc", callback=lambda: return_to_main())
     mode_selection_function()
