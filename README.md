@@ -15,7 +15,6 @@ Install [Pipenv](https://pipenv.pypa.io/en/latest/)
 
 Install the required libraries from the Pipfile.lock file:
 `pipenv sync`
-``
 
 &nbsp;
 
