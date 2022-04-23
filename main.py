@@ -814,6 +814,5 @@ def simplify_factor():
                 previous = eval(str(previous) + equation)
 
 
-# mode_menu()
-
-mode_selection_function()
+if __name__ == "__main__":
+    mode_selection_function()
