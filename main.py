@@ -1,14 +1,9 @@
-from unittest import result
-import keyboard
-
 from math import *
-from sympy import *
-
-# from sympy import Symbol, symbols, integrate
-from statistics import *
-import UserGuide
-
-# from sympy import solve
+from sympy import * 
+#from sympy import Symbol, symbols, integrate
+from statistics import * 
+import UserGuide 
+#from sympy import solve
 from sympy.abc import x, y, z, a, b
 from sympy.parsing.sympy_parser import parse_expr
 
@@ -21,18 +16,17 @@ def mode_menu():
 
     print("\nText-based calculator\n")
 
-    print("Calculator Modes:\n")
+    print("Calculator Modes:\n") 
 
-    print("R) real")
+    print("R) real")     
     print("D) derivative")
-    print("I) integral")
-    print("S) statistics")
+    print("I) integral") 
+    print("S) statistics") 
     print("A) Algebra")
     print("U) User Guides")
     print("Q) Quit")
 
-
-def derivative_menu():
+def derivative_menu(): 
     print("\nDerivative options\n")
     print("1) Simple Rule")
     print("2) Power Rule")
@@ -43,28 +37,26 @@ def derivative_menu():
     print("7) Partial Rule")
     print("8) Multivariable Rule")
     print("B) Back")
-
-
-def algebra_solver_menu():
-    print("\nAlgebra Options\n")
+    
+def algebra_solver_menu(): 
+    print("\nAlgebra Options\n")    
 
     print("1) Solver")
-    print("2) Factor, Expand, Simplify, and Polynomials")
+    print("2) Factor, Expand, Simplify, and Polynomials")    
     print("B) Back")
 
-
-def UserGuideMenuSelectionDisplay():
+def UserGuideMenuSelectionDisplay(): 
     print("\nUser Guide Menu\n")
-
+    
     print("R) Real Number User Guide")
     print("D) Derivative User Guide")
     print("I) Integral User Guide")
     print("S) Statistics User Guide")
     print("A) Algebra User Guide")
+    print("H) How to use")
     print("B) Back")
 
-
-def RealNumberInstructionsMenu():
+def RealNumberInstructionsMenu(): 
     print("\nReal Number Functions\n")
 
     print("R) Representation")
@@ -74,79 +66,81 @@ def RealNumberInstructionsMenu():
     print("H) Hyperbolic")
     print("C) Constants")
     print("B) Back")
+    
 
+def         mode_selection_function():    
 
-def mode_selection_function():
 
     while True:
-
+        
         mode_menu()
 
         mode_selection = input("Which calculator mode would you like to use? ")
-        mode_selection = mode_selection.lower()
+        mode_selection = mode_selection.lower() 
         mode_selection = mode_selection.strip()
 
         if mode_selection == "r" or mode_selection == "real":
-            RealModeFunction()
-        elif mode_selection == "d" or mode_selection == "derivative":
+            RealModeFunction()        
+        elif mode_selection == "d" or mode_selection  == "derivative":
             derivative_menu()
             derivative_rules_selection()
-
-        elif mode_selection == "i" or mode_selection == "integral":
-            integral_mode()
-        elif mode_selection == "s" or mode_selection == "statistics":
+            
+        elif mode_selection == "i" or mode_selection  == "integral":
+            integral_mode()    
+        elif mode_selection == "s" or mode_selection  == "statistics":
             statistics_mode()
-        elif mode_selection == "a" or mode_selection == "algebra":
-
+        elif mode_selection == "a" or mode_selection  == "algebra":
+            
             algebra_solver_menu()
             algebra_mode_selection()
 
-        elif (
-            mode_selection == "u"
-            or mode_selection == "user"
-            or mode_selection == "user guides"
-        ):
+        elif mode_selection == "u" or mode_selection  == "user" or mode_selection  == "user guides":
             UserGuideMenuSelection()
-
-        else:
+        
+        else: 
             exit()
 
 
-# Selection for derivative rules
+#Selection for derivative rules 
 def derivative_rules_selection():
 
+    
+
+    
     menu_back = False
 
     while menu_back == False:
         derivative_menu()
 
         derivative_selection = input("Select an option: ")
-        derivative_selection = derivative_selection.lower()
+        derivative_selection = derivative_selection.lower() 
         derivative_selection = derivative_selection.strip()
-        if derivative_selection == "simple" or derivative_selection == "1":
-            simple_derivative()
-        elif derivative_selection == "power" or derivative_selection == "2":
+        if derivative_selection == "simple" or derivative_selection  == "1": 
+            simple_derivative() 
+        elif derivative_selection == "power" or derivative_selection  == "2":
             power_derivative()
-        elif derivative_selection == "product" or derivative_selection == "3":
+        elif derivative_selection == "product" or derivative_selection  == "3": 
             product_derivative()
-        elif derivative_selection == "quotient" or derivative_selection == "4":
+        elif derivative_selection == "quotient" or derivative_selection  == "4":
             quotient_derivative()
-        elif derivative_selection == "chain" or derivative_selection == "5":
+        elif derivative_selection == "chain" or derivative_selection  == "5":
             chain_derivative()
         elif derivative_selection == "exponential" or derivative_selection == "6":
             exponential_derivative()
         elif derivative_selection == "partial" or derivative_selection == "7":
-            partial_derivative()
-        elif derivative_selection == "multivariable" or derivative_selection == "8":
-            multivariable_derivative()
+            partial_derivative() 
+        elif derivative_selection == "multivariable" or derivative_selection  == "8": 
+            multivariable_derivative()                
         elif derivative_selection == "b" or derivative_selection == "back":
-            menu_back = True
-        else:
-            exit()
+            menu_back = True         
+        else: 
+            exit() 
 
 
-def algebra_mode_selection():
-
+def algebra_mode_selection(): 
+    
+    
+    
     menu_back = False
 
     while menu_back == False:
@@ -154,26 +148,26 @@ def algebra_mode_selection():
         algebra_solver_menu()
 
         algebra_selection = input("Select an option: ")
-        algebra_selection = algebra_selection.lower()
-        algebra_selection = algebra_selection.strip()
+        algebra_selection  = algebra_selection .lower()
+        algebra_selection  = algebra_selection.strip()
 
         if algebra_selection == "1":
-            algebra_solver_function()
-
-        elif algebra_selection == "2":
-            simplify_factor()
-        elif algebra_selection == "b" or algebra_selection == "back":
-            menu_back = True
-        else:
+            algebra_solver_function() 
+               
+        elif algebra_selection == "2": 
+            simplify_factor()                            
+        elif algebra_selection == "b" or algebra_selection  == "back":     
+            menu_back = True 
+        else: 
             exit()
 
-
-def UserGuideMenuSelection():
+def UserGuideMenuSelection(): 
     UserGuideMenuSelectionDisplay()
+    
 
     back = False
 
-    while back == False:
+    while back == False:        
 
         UserGuideOptions = input('Choose a user guide/type "o" to view the options: ')
         UserGuideOptions = UserGuideOptions.lower()
@@ -181,29 +175,29 @@ def UserGuideMenuSelection():
 
         if UserGuideOptions == "r" or UserGuideOptions == "real":
             RealNumberInstructionsMenu()
-
+            
             RealNumberInstructionsSelection()
-
-        elif UserGuideOptions == "d" or UserGuideOptions == "derivative":
+            
+        elif UserGuideOptions == "d" or UserGuideOptions == "derivative": 
             UserGuide.DerivativesInstructions()
-
+        
         elif UserGuideOptions == "i" or UserGuideOptions == "integral":
             UserGuide.IntegralInstructions()
-
-        elif UserGuideOptions == "s" or UserGuideOptions == "statistics":
+            
+        elif UserGuideOptions== "s" or UserGuideOptions == "statistics":
             UserGuide.StatisticsInstructions()
-
+            
         elif UserGuideOptions == "a" or UserGuideOptions == "algebra":
             UserGuide.AlgebraInstructions()
-
-        elif UserGuideOptions == "o" or UserGuideOptions == "options":
+        elif UserGuideOptions == "h" or UserGuideOptions  == "how":
+            UserGuide.HowtoUseInstructions()
+        elif UserGuideOptions   == "o" or UserGuideOptions == "options":    
             UserGuideMenuSelectionDisplay()
-        elif UserGuideOptions == "b" or UserGuideOptions == "back":
+        elif UserGuideOptions   == "b" or UserGuideOptions == "back":
             back = True
 
-        else:
-            exit()
-
+        else: 
+            exit()   
 
 def RealNumberInstructionsSelection():
 
@@ -211,65 +205,38 @@ def RealNumberInstructionsSelection():
 
     while real_back == False:
 
-        realnumberinstructionoptions = input(
-            '\nSelect an option/type "o" to view the options: '
-        )
-        realnumberinstructionoptions = realnumberinstructionoptions.lower()
-        realnumberinstructionoptions = realnumberinstructionoptions.strip()
+        realnumberinstructionoptions = input('\nSelect an option/type "o" to view the options: ')
+        realnumberinstructionoptions  = realnumberinstructionoptions.lower()
+        realnumberinstructionoptions  = realnumberinstructionoptions.strip()
 
-        if (
-            realnumberinstructionoptions == "r"
-            or realnumberinstructionoptions == "representation"
-        ):
+        if realnumberinstructionoptions  == "r" or realnumberinstructionoptions  == "representation": 
             UserGuide.RepresentationInstructions()
-
-        elif (
-            realnumberinstructionoptions == "p"
-            or realnumberinstructionoptions == "power"
-        ):
-            UserGuide.PowerandLogarithmInstructions()
-
-        elif (
-            realnumberinstructionoptions == "t"
-            or realnumberinstructionoptions == "trigonometry"
-        ):
+        
+        elif realnumberinstructionoptions  == "p" or realnumberinstructionoptions  == "power":         
+            UserGuide.PowerandLogarithmInstructions()        
+        
+        elif realnumberinstructionoptions  == "t" or realnumberinstructionoptions  == "trigonometry":                 
             UserGuide.TrigonometryInstructions()
 
-        elif (
-            realnumberinstructionoptions == "a"
-            or realnumberinstructionoptions == "angular"
-        ):
+        elif realnumberinstructionoptions  == "a" or realnumberinstructionoptions  == "angular":
             UserGuide.AngularConversionInstructions()
 
-        elif (
-            realnumberinstructionoptions == "h"
-            or realnumberinstructionoptions == "hyperbolic"
-        ):
+        elif realnumberinstructionoptions  == "h" or realnumberinstructionoptions  == "hyperbolic":                 
             UserGuide.HyperbolicFunctionsInstructions()
-
-        elif (
-            realnumberinstructionoptions == "c"
-            or realnumberinstructionoptions == "constants"
-        ):
+      
+        elif realnumberinstructionoptions  == "c" or realnumberinstructionoptions  == "constants":                 
             UserGuide.ConstantsInstructions()
-
-        elif (
-            realnumberinstructionoptions == "b"
-            or realnumberinstructionoptions == "back"
-        ):
+            
+        elif realnumberinstructionoptions   == "b" or realnumberinstructionoptions  == "back":
             UserGuideMenuSelectionDisplay()
             real_back = True
-
-        elif (
-            realnumberinstructionoptions == "o"
-            or realnumberinstructionoptions == "options"
-        ):
+             
+        elif realnumberinstructionoptions   == "o" or realnumberinstructionoptions == "options":    
             RealNumberInstructionsMenu()
 
         else:
-            exit()
-
-
+            exit()    
+        
 def RealModeFunction():
     print("\nType your equation in real number mode:\n")
 
@@ -277,8 +244,13 @@ def RealModeFunction():
 
     run_real_mode = True
 
+    
+
+
     while run_real_mode:
 
+    
+        
         equation = input(str(previous))
         equation = equation.lower()
         equation = equation.strip()
@@ -288,105 +260,113 @@ def RealModeFunction():
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation  == "c" or equation =="clear":
             previous = 0
 
         elif equation == "b" or equation == "back":
             previous = 0
             run_real_mode = False
-
+        
         else:
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
+
+                    equation = "0" + equation
                 previous = eval(equation)
             else:
                 previous = eval(str(previous) + equation)
+        
 
-
-def simple_derivative():
+def simple_derivative(): 
     print("\nType your equation in simple derivative mode:\n")
-    x = Symbol("x")
+    x = Symbol('x') 
     global previous
     run_simple_mode = True
 
-    while run_simple_mode:
+    while run_simple_mode:        
+
+
+    
 
         equation = input(str(previous))
         equation = equation.lower()
         equation = equation.strip()
 
-        if equation == "q" or equation == "quit":
+        if equation  == "q" or equation == "quit":
 
-            exit()
+            exit()            
 
-        elif equation == "c" or equation == "clear":
+        elif equation  == "c" or equation =="clear":
 
-            previous = 0
+            previous = 0            
 
         elif equation == "b" or equation == "back":
 
             previous = 0
 
-            run_simple_mode = False
+            run_simple_mode = False            
+                            
 
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
-def power_derivative():
+        
+def power_derivative(): 
     print("\nType your equation in power derivative mode:\n")
-    x = Symbol("x")
+    x = Symbol('x') 
     global previous
     run_power_mode = True
+    
+   
+    while run_power_mode:        
 
-    while run_power_mode:
+
+        
 
         equation = input(str(previous))
         equation = equation.lower()
         equation = equation.strip()
 
-        if equation == "q" or equation == "quit":
+        if equation  == "q" or equation == "quit":
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation  == "c" or equation =="clear":
 
-            previous = 0
+            previous = 0            
 
         elif equation == "b" or equation == "back":
 
             previous = 0
 
-            run_power_mode = False
-
+            run_power_mode = False                            
+        
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
+        
 def product_derivative():
     print("\nType your equation in product derivative mode:\n")
-    x = Symbol("x")
+    x = Symbol('x') 
     global previous
     run_product_mode = True
+    
+   
+    while run_product_mode:        
 
-    while run_product_mode:
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -396,36 +376,36 @@ def product_derivative():
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation == "c" or equation =="clear":
+
+            previous = 0            
+
+        elif equation  == "b" or equation == "back":
 
             previous = 0
 
-        elif equation == "b" or equation == "back":
+            run_product_mode = False            
 
-            previous = 0
-
-            run_product_mode = False
-
+        
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
+        
 def quotient_derivative():
     print("\nType your equation in quotient derivative mode:\n")
-    x = Symbol("x")
+    x = Symbol('x') 
     global previous
     run_quotient_mode = True
+    
+   
+    while run_quotient_mode:        
 
-    while run_quotient_mode:
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -435,36 +415,34 @@ def quotient_derivative():
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation == "c" or equation =="clear":
 
-            previous = 0
+            previous = 0            
 
         elif equation == "b" or equation == "back":
 
             previous = 0
 
-            run_quotient_mode = False
-
+            run_quotient_mode = False            
+        
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
+        
 def chain_derivative():
     print("\nType your equation in chain derivative mode:\n")
-    x = Symbol("x")
+    x = Symbol('x') 
     global previous
     run_chain_mode = True
-
-    while run_chain_mode:
+    
+   
+    while run_chain_mode:        
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -474,36 +452,35 @@ def chain_derivative():
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation == "c" or equation =="clear":
 
-            previous = 0
+            previous = 0            
 
         elif equation == "b" or equation == "back":
 
             previous = 0
 
-            run_chain_mode = False
+            run_chain_mode = False            
 
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
+        
 def exponential_derivative():
     print("\nType your equation in exponential mode:\n")
-    x = Symbol("x")
+    x = Symbol('x') 
     global previous
-    run_exponential_mode = True
+    run_exponential_mode = True 
+    
+   
+    while run_exponential_mode:        
 
-    while run_exponential_mode:
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -513,37 +490,36 @@ def exponential_derivative():
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation == "c" or equation =="clear":
 
-            previous = 0
+            previous = 0            
 
         elif equation == "b" or equation == "back":
 
             previous = 0
 
-            run_exponential_mode = False
+            run_exponential_mode = False            
 
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
+        
 def partial_derivative():
     print("\nType your equation in partial derivative mode:\n")
-    x, y = symbols("x y")
+    x, y = symbols('x y')
 
     global previous
-    run_Partial_mode = True
+    run_Partial_mode = True 
+    
+   
+    while run_Partial_mode:        
 
-    while run_Partial_mode:
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -553,37 +529,39 @@ def partial_derivative():
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation == "c" or equation =="clear":
 
-            previous = 0
+            previous = 0            
 
         elif equation == "b" or equation == "back":
 
             previous = 0
 
-            run_Partial_mode = False
+            run_Partial_mode = False            
 
+        
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
+        
 
 
-def multivariable_derivative():
+def multivariable_derivative(): 
     print("\nType your equation in multivariable mode:\n")
-    x, y = symbols("x y")
+    x, y = symbols('x y')
 
     global previous
-    run_multivariable_mode = True
+    run_multivariable_mode = True 
+    
+   
+    while run_multivariable_mode:        
 
-    while run_multivariable_mode:
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -593,37 +571,37 @@ def multivariable_derivative():
 
             exit()
 
-        elif equation == "c" or equation == "clear":
+        elif equation == "c" or equation =="clear":
 
-            previous = 0
+            previous = 0            
 
         elif equation == "b" or equation == "back":
 
             previous = 0
 
-            run_multivariable_mode = False
+            run_multivariable_mode = False            
 
+        
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
-def integral_mode():
+        
+    
+def integral_mode(): 
     print("\nType your equation in integral mode:\n")
-    x, y = symbols("x y")
+    x, y = symbols('x y')
 
     global previous
-    run_integral_mode = True
+    run_integral_mode = True 
+    
+    while run_integral_mode:        
 
-    while run_integral_mode:
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -635,17 +613,17 @@ def integral_mode():
 
         elif equation == "c" or equation == "clear":
 
-            previous = 0
+            previous = 0            
         elif equation == "b" or equation == "back":
 
             previous = 0
             run_integral_mode = False
 
-        elif equation[0:9] == "integral(" or equation[0:10] == "+integral(":
-
+        elif equation[0:9] == "integral(" or equation[0:10] == "+integral(":        
+            
             opening_paren = equation.find("(")
             closing_paren = equation.rfind(")")
-            elements = equation[opening_paren + 1 : closing_paren]
+            elements = equation[opening_paren + 1: closing_paren]
             elements = elements.split(",")
             elements = [x.strip() for x in elements]
 
@@ -654,45 +632,45 @@ def integral_mode():
 
             # indefinite
             if len(elements) == 2:
-
+  
                 resultwithoutlh = integrate(integral, variable)
 
                 if previous == 0:
-                    previous = resultwithoutlh
+                    previous = resultwithoutlh        
                 else:
                     previous += resultwithoutlh
+                
 
             elif len(elements) == 4:
                 lower = elements[2]
                 upper = elements[3]
-                resultwlh = integrate(integral, (variable, lower, upper))
+                resultwlh = integrate(integral, (variable, lower, upper)) 
 
                 if previous == 0:
-                    previous = resultwlh
+                    previous = resultwlh        
                 else:
                     previous += resultwlh
-
+        
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
-def statistics_mode():
+        
+def statistics_mode(): 
     print("\nType your equation in statistics mode:\n")
 
     global previous
 
     run_statistics_mode = True
 
+
     while run_statistics_mode:
+        
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -701,44 +679,45 @@ def statistics_mode():
         if equation == "q" or equation == "quit":
 
             exit()
-
-        elif equation == "c" or equation == "clear":
+            
+        elif equation == "c" or equation =="clear":
 
             previous = 0
         elif equation == "b" or equation == "back":
 
             previous = 0
-            run_statistics_mode = False
-
+            run_statistics_mode = False 
+            
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
             else:
-
                 previous = eval(str(previous) + equation)
-
+        
 
 def equationSolver(string_):
     try:
-        lhs = parse_expr(string_.split("=")[0])
-        rhs = parse_expr(string_.split("=")[1])
-        solution = solve(lhs - rhs)
+        lhs =  parse_expr(string_.split("=")[0])
+        rhs =  parse_expr(string_.split("=")[1])
+        solution = solve(lhs-rhs)
         return solution
     except:
         print("Invalid equation.")
 
 
-def algebra_solver_function():
+def algebra_solver_function(): 
 
     print("\nType your equation in algebra solver mode:\n")
 
     global previous
-    run_algebra_solver_function_mode = True
+    run_algebra_solver_function_mode = True 
+    
+    while run_algebra_solver_function_mode:        
 
-    while run_algebra_solver_function_mode:
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -750,47 +729,46 @@ def algebra_solver_function():
 
         elif equation == "c" or equation == "clear":
 
-            previous = 0
+            previous = 0            
         elif equation == "b" or equation == "back":
-            previous = 0
-            run_algebra_solver_function_mode = False
+            previous = 0 
+            run_algebra_solver_function_mode = False 
         elif equation[0:6] == "solve(" or equation[0:7] == "+solve(":
-
+            
             opening_paren = equation.find("(")
             closing_paren = equation.rfind(")")
-            elements = equation[opening_paren + 1 : closing_paren]
-            #           elements = elements.split(",")
+            elements = equation[opening_paren + 1: closing_paren]
+#           elements = elements.split(",")            
             solution = equationSolver(elements)
+            
+            if previous == 0: 
+                previous = solution 
 
-            if previous == 0:
-                previous = solution
-
-            else:
+            else:     
                 previous += solution
-
+                
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
-                previous = previous
-
             else:
-
                 previous = eval(str(previous) + equation)
-
-
+        
 def simplify_factor():
 
-    print("\nType your equation in simplifying/factoring mode:\n")
-    x = symbols("x")
+    print("\nType your equation in simlifying/factoring mode:\n")
+    x = symbols('x')
 
     global previous
 
     run_algebra_simplify_factor = True
 
+
     while run_algebra_simplify_factor:
+        
 
         equation = input(str(previous))
         equation = equation.lower()
@@ -799,31 +777,24 @@ def simplify_factor():
         if equation == "q" or equation == "quit":
 
             exit()
-
+            
         elif equation == "c" or equation == "clear":
 
             previous = 0
         elif equation == "b" or equation == "back":
             previous = 0
-            run_algebra_simplify_factor = False
+            run_algebra_simplify_factor = False               
+
         else:
-
             if previous == 0:
+                if equation[0] == "*" or equation[0] == "/" \
+                    or equation[0] == "%":
 
+                    equation = "0" + equation
                 previous = eval(equation)
-
             else:
-
                 previous = eval(str(previous) + equation)
+        
 
 
-def return_to_main():
-    if previous == 0:
-        mode_selection_function()
-    else:
-        previous = 0
-
-
-if __name__ == "__main__":
-    keyboard.add_hotkey("esc", callback=lambda: return_to_main())
-    mode_selection_function()
+mode_selection_function()

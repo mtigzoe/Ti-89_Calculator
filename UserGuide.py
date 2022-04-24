@@ -246,3 +246,15 @@ def AlgebraInstructions():
     print("{0:10}  {1}".format("factor(_)", "The factor of given expression."))
     print("{0:10}  {1}".format("Expand(_)", "Expands the given expression"))
     print("{0:10}  {1}".format("solve(_ = _)", "Solve for a variable"))
+
+def HowtoUseInstructions():
+    print("\nHow to Use Instructions\n")
+    print(
+        "{0:10}  {1}".format("c or clear", "Clear the calculator.")
+    )
+    print(
+        "{0:10}  {1}".format(
+            "b or back", "Return to a menu."
+        )
+    )
+    

@@ -48,23 +48,23 @@ User Guide (to get a list of functions within the other modes and to help answer
 
 To use the real mode, type "r", "R", or "real" from the main screen.
 
-To use the real mode, type "d", "D", or "derivatives" from the main screen.
+To use the derivative mode, type "d", "D", or "derivatives" from the main screen.
 
-To use the real mode, type "i", "I", or "integral" from the main screen.
+To use the integral mode, type "i", "I", or "integral" from the main screen.
 
-To use the real mode, type "s", "S", or "statistics" from the main screen.
+To use the statistics mode, type "s", "S", or "statistics" from the main screen.
 
-To use the real mode, type "a", "A", or "algebra" from the main screen.
+To use the algebra mode, type "a", "A", or "algebra" from the main screen.
 
-To use the real mode, type "u", "U", or "user" from the main screen.
+To use the user guides, type "u", "U", or "user" from the main screen.
 
 &nbsp;
 
 Once in a mode, you can perform calculations and operations per the instructions in the User Guide.
 
-The calculator will keep building on itself as you enter formulas, so if you ever want to reset it, type "clear".
+The calculator will keep building on itself as you enter formulas, so if you ever want to reset it, type "c" or "clear".
 
-You can also switch modes by typing "switch" at anytime in a mode. You will then be prompted to pick a new mode.
+You can also switch modes by typing "b" or "back" at anytime in a mode. You will then be prompted to pick a new mode.
 
 You can also go back a screen by typing "b" or "back" at any time.
 
