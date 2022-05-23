@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 sympy = "*"
 statistics = "*"
-keyboard = "*"
 
 [dev-packages]
 

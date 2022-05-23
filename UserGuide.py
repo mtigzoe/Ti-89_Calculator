@@ -182,9 +182,9 @@ def ConstantsInstructions():
 def DerivativesInstructions():
     print("\nDerivatives Instructions\n")
     print(
-        "It has different eight derivatives rules: Simple, Power, Product, Quotient, Chain, Exponential, Partial and Multivariable.\n"
+        "It has different six derivatives rules: Power, Product, Quotient, Chain, Partial and Multivariable.\n"
     )
-    print("For example, you can type 'diff(x**2, x)''.\n")
+    print("For example, you can type 'x**2, x)''.\n")
 
 
 # integral
@@ -257,4 +257,10 @@ def HowtoUseInstructions():
             "b or back", "Return to a menu."
         )
     )
+    print(
+        "{0:10}  {1}".format(
+            "**", "Exponent."
+        )
+    )   
+    
     
