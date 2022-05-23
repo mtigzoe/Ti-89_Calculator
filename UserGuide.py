@@ -262,5 +262,10 @@ def HowtoUseInstructions():
             "**", "Exponent."
         )
     )   
+    print(
+        "{0:10}  {1}".format(
+            "ans", "Saves the previous result."
+        )
+    )   
     
     
