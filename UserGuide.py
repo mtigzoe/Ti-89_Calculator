@@ -198,54 +198,49 @@ def IntegralInstructions():
 def StatisticsInstructions():
     print("\nStatistics Instructions\n")
 
-    print("{0:10}  {1}".format("mean([_,_,_])", "Arithmetic mean (average) of data."))
+    print("{0:10}  {1}".format("mean(_,_,_)", "Arithmetic mean (average) of data."))
     print(
-        "{0:10}  {1}".format("fmean([_,_,_])", "Fast, floating point arithmetic mean.")
+        "{0:10}  {1}".format("fmean(_,_,_)", "Fast, floating point arithmetic mean.")
     )
-    print("{0:10}  {1}".format("geometric_mean([_,_,_])", "Geometric mean of data."))
-    print("{0:10}  {1}".format("harmonic_mean([_,_,_])", "Harmonic mean of data."))
-    print("{0:10}  {1}".format("median([_,_,_])", "Median (middle value) of data."))
-    print("{0:10}  {1}".format("median_low([_,_,_])", "Low median of data."))
-    print("{0:10}  {1}".format("median_high([_,_,_])", "High median of data."))
+    print("{0:10}  {1}".format("geometric_mean(_,_,_)", "Geometric mean of data."))
+    print("{0:10}  {1}".format("harmonic_mean(_,_,_)", "Harmonic mean of data."))
+    print("{0:10}  {1}".format("median(_,_,_)", "Median (middle value) of data."))
+    print("{0:10}  {1}".format("median_low(_,_,_)", "Low median of data."))
+    print("{0:10}  {1}".format("median_high(_,_,_)", "High median of data."))
     print(
         "{0:10}  {1}".format(
-            "median_grouped([_,_,_])", "Median, or 50th percentile, of grouped data."
+            "median_grouped(_,_,_)", "Median, or 50th percentile, of grouped data."
         )
     )
-    print("{0:10}  {1}".format("mode([_,_,_])", "Mode (most common value) of data."))
+    print("{0:10}  {1}".format("mode(_,_,_)", "Mode (most common value) of data."))
     print(
         "{0:10}  {1}".format(
-            "multimode([_,_,_])", "List of modes (most common values of data)."
+            "multimode(_,_,_)", "List of modes (most common values of data)."
         )
     )
     print(
         "{0:10}  {1}".format(
-            "quantiles([_,_,_])", "Divide data into intervals with equal probability."
+            "quantiles(_,_,_)", "Divide data into intervals with equal probability."
         )
     )
     print(
         "{0:10}  {1}".format("pstdev(_,_,_)", "Population standard deviation of data.")
     )
-    print("{0:10}  {1}".format("pvariance([_,_,_])", "Population variance of data."))
+    print("{0:10}  {1}".format("pvariance(_,_,_)", "Population variance of data."))
 
 
-print("{0:10}  {1}".format("stdev([_,_,_])", "Sample standard deviation of data."))
-print("{0:10}  {1}".format("pvariance([_,_,_])", "Sample variance of data."))
+print("{0:10}  {1}".format("stdev(_,_,_)", "Sample standard deviation of data."))
+print("{0:10}  {1}".format("pvariance(_,_,_)", "Sample variance of data."))
 
 # Algebra
 def AlgebraInstructions():
     print("\nAlgebra Instructions\n")
     print(
-        "{0:10}  {1}".format("Usuing simplify(_)", "Simplifies the given expression.")
+        "{0:10}  {1}".format("Simplify", "Simplifies the given expression.")
     )
-    print(
-        "{0:10}  {1}".format(
-            "poly(_)", "Efficiently transform an expression into a polynomial."
-        )
-    )
-    print("{0:10}  {1}".format("factor(_)", "The factor of given expression."))
-    print("{0:10}  {1}".format("Expand(_)", "Expands the given expression"))
-    print("{0:10}  {1}".format("solve(_ = _)", "Solve for a variable"))
+                
+    print("{0:10}  {1}".format("Factor", "The factor of given expression."))
+    print("{0:10}  {1}".format("The format for solver: _ = _", "Solve for a variable"))
 
 def HowtoUseInstructions():
     print("\nHow to Use Instructions\n")
