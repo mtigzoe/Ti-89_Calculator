@@ -281,12 +281,7 @@ def RealModeFunction():
             equation = input()
             equation = equation.lower()
             equation = equation.strip()        
-
-            
-            #print(previous)
-        
-            
-
+                                            
             if equation  == "c" or equation =="clear":
                 previous = 0
                 print(previous)        
@@ -308,6 +303,7 @@ def RealModeFunction():
                     
             
         except: 
+            print("Error.")
             if equation == "q" or equation == "quit":
                 run_real_mode = False
 
@@ -317,6 +313,7 @@ def RealModeFunction():
                 
             
                 continue 
+            
 #Simple, power, product, quotient, and chain with x = symbol('x')
 def simple_derivative(): 
     
@@ -473,6 +470,7 @@ def integral_mode():
                 print(previous)        
             
         except: 
+            print("Error.")
             if equation == "q" or equation == "quit":
                 run_integral_mode = False
 
@@ -483,7 +481,7 @@ def integral_mode():
                 continue 
 
 def statisticsFunction(equation):
-    print(equation)
+    #print(equation)
             
     opening_paren = equation.find("(")
     closing_paren = equation.rfind(")")
@@ -500,14 +498,12 @@ def statisticsFunction(equation):
     elements = str(elements)
 
     result = statisticsMethod + "(" + elements + ")"
-    print(result)
+    #print(result)
 
     return result 
 
 
-def statistics_mode(): 
-    
-
+def statistics_mode():     
     global previous
 
     run_statistics_mode = True
@@ -542,6 +538,7 @@ def statistics_mode():
                 print(previous)        
         
         except: 
+            print("Error.")
             if equation == "q" or equation == "quit":
                 run_statistics_mode = False
 
@@ -551,6 +548,7 @@ def statistics_mode():
                 
             
                 continue 
+            
 
 
 def equationSolver(string_):
@@ -609,20 +607,24 @@ def algebra_solver_function():
 def factor_function():
 
     
-    x = symbols('x')
+    x, y = symbols('x y')
 
     global previous
 
     run_algebra_factor = True
+    equation = " "
 
 
-    while run_algebra_factor:
+    while equation != 'q' and equation != 'quit' and \
+        equation != 'b' and equation != 'back':
         try:
         
 
             equation = input()
             equation = equation.lower()
             equation = equation.strip()
+
+            
             
                 
             if equation == "c" or equation == "clear":
@@ -631,30 +633,35 @@ def factor_function():
                 print(previous)
             elif equation == "b" or equation == "back":
                 previous = 0
-                run_algebra_factor = False    
+                run_algebra_factor = False        
+            
             elif equation[0:3] == "ans": 
                 
                 equation = equation[3:]
-                factor(equation)
                 previous = eval(str(previous) + equation)     
-                print(previous)        
+                expand(previous)
+                print(factor(previous))
+                
+                
+                #print(previous)        
                 
             else:
-                factor(equation)
                 previous = eval(equation)
-                print(previous)        
+                expand(previous)
+                print(factor(previous))
+                
+                #print(previous)        
             
                     
         except: 
             if equation == "q" or equation == "quit":
-                run_algebra_factor = False
-
-                exit()
-
+                run_algebra_factor = False   
             
-            else: 
-                
+                exit()    
             
+            else:     
+                print("Error.")
+                                                                            
                 continue 
         
 def simplify_function():
@@ -696,6 +703,7 @@ def simplify_function():
             
                     
         except: 
+            print("Error.")
             if equation == "q" or equation == "quit":
                 run_algebra_simplify = False
 
